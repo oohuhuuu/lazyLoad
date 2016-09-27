@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script   src="js/jquery.js"></script>
+	<style type="text/css">
+
+img{
+	width:640px;
+	height: 452px; 
+}
+h1{
+	display: none;
+	height: 30px;
+}
+.show{
+	display: block !important;
+}
+</style>
+</head>
+<body>
+<div class="box1">
+
+<p>hihi</p>
+<h1>haha</h1>
+	<img asrc="1.jpg" src="1.png" />
+	<img asrc="2.jpg" src="1.png"/>
+	<img asrc="1.jpg" src="1.png" />
+	<p>hihi</p>
+<h1>haha</h1>
+	<img asrc="2.jpg" src="1.png"/>
+	<img asrc="1.jpg" src="1.png" />
+	<img asrc="2.jpg" src="1.png"/>
+	<p>hihi</p>
+<h1>haha</h1>
+	<img asrc="1.jpg" src="1.png" />
+	<img asrc="2.jpg" src="1.png"/>
+	<img asrc="1.jpg" src="1.png" />
+	<img asrc="2.jpg" src="1.png"/>
+	<img asrc="1.jpg" src="1.png" />
+
+</div>
+
+<p>hihi</p>
+<h1>haha</h1>
+<div class="box2">
+
+	<img asrc="2.jpg" src="1.png"/>
+	<img asrc="1.jpg" src="1.png" />
+	<img asrc="2.jpg" src="1.png"/>
+	<img asrc="1.jpg" src="1.png" />
+	<img asrc="2.jpg" src="1.png"/>
+	<img asrc="1.jpg" src="1.png" />
+	<img asrc="2.jpg" src="1.png"/>
+	<img asrc="1.jpg" src="1.png" />
+	<img asrc="2.jpg" src="1.png"/>
+	<img asrc="1.jpg" src="1.png" />
+</div>
+
+<p>hihi</p>
+<h1>haha</h1>
+
+</body>
+
+	<script type = "text/javascript" >
+
+
+		(function($) {
+			$.fn.lazyLoad = function() {
+				var img = $(this).find('img');
+				function replaceImg() {
+					img.each(function() {
+						var toTop = $(this).offset().top;
+						var scrollTop = $(window).scrollTop();
+						var r = toTop - scrollTop + 500;
+						if (r <= $(window).innerHeight()) {
+							var asrc = $(this).attr("asrc");
+							$(this).attr({
+								src: asrc
+							})
+						}
+					})
+				}
+				window.onscroll = window.onresize = window.onload = function() {
+					replaceImg();
+				}
+			}
+		})(jQuery);
+	$('.box1').lazyLoad();
+		$('body').click(function(){
+		alert()
+	})
+	</script>
+</html>
