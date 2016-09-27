@@ -31,6 +31,7 @@ h1{
 	<img asrc="1.jpg" src="1.png" />
 	<img asrc="2.jpg" src="1.png"/>
 
+	<img asrc="2.jpg" src="1.png"/>
 
 	<img asrc="1.jpg" src="1.png" />
 	<img asrc="2.jpg" src="1.png"/>
@@ -68,7 +69,7 @@ h1{
 					img.each(function() {
 						var toTop = $(this).offset().top;
 						var scrollTop = $(window).scrollTop();
-						var r = toTop - scrollTop + 500;
+						var r = toTop - scrollTop + 300;   //+300 为了方便看效果   正式项目要去掉
 						if (r <= $(window).innerHeight()) {
 							var asrc = $(this).attr("asrc");
 							$(this).attr({
